@@ -10,6 +10,7 @@ class Array2D:
     """
     Two-Demensional Arrays ADT
     """
+
     def __init__(self, num_rows, num_cols) -> None:
         self._the_rows = Array(num_rows)
         for i in range(num_rows):
@@ -55,12 +56,13 @@ class Array2D:
                 ret.append(str(the_1d_array[_c]))
         return ','.join(ret)
 
+    def clear(self, value):
+        for row in self._the_rows:
+            row.clear(value)
+
 
 if __name__ == '__main__':
     ROW, COL = (2, 3)
     ARRAY_2D = Array2D(ROW, COL)
-    for r in range(ROW):
-        for c in range(COL):
-            ARRAY_2D[r, c] = r + c
-
+    ARRAY_2D.clear(value=2)
     print(ARRAY_2D)
